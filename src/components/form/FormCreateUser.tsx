@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store";
 import { useState } from "react";
 import { addUser } from "../../store/UserSlice";
-import { NavLink } from "react-router-dom";
 
 const FormCreateUser = () => {
   const stateSelect = useSelector((state: RootState) => state.states);
@@ -33,22 +32,11 @@ const FormCreateUser = () => {
       })
     );
   };
-
   return (
     <div>
-      <div className="title">
-        <h1>HRnet</h1>
-      </div>
       <div className="container">
         <div className="nav">
           <h2>Create Employee</h2>
-          <nav>
-            <ul>
-              <li>
-                <NavLink to={"/current-employees"}>Current Employees</NavLink>
-              </li>
-            </ul>
-          </nav>
         </div>
         <form
           action="#"
@@ -147,7 +135,7 @@ const FormCreateUser = () => {
                 }
                 required
               >
-                <option value="" disabled selected>
+                <option value="default" disabled>
                   Choose employee's state
                 </option>
                 {stateSelect.map((s) => (
@@ -182,7 +170,7 @@ const FormCreateUser = () => {
             }
             required
           >
-            <option value="" disabled selected>
+            <option value="default" disabled>
               Choose department
             </option>
             <option>Sales</option>
