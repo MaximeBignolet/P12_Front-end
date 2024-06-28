@@ -110,3 +110,11 @@ button {
   border-radius: 5px;
   width: fit-content;
 }
+
+
+@media (min-width: 1024px) {
+  form{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
