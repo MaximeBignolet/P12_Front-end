@@ -76,7 +76,7 @@ const FormCreateUser = () => {
                 <label htmlFor="date-of-birth"></label>
                 <input
                   id="date-of-birth"
-                  type="text"
+                  type="date"
                   placeholder="Date of Birth"
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setDateOfBirth(e.target.value)
@@ -88,7 +88,7 @@ const FormCreateUser = () => {
                 <label htmlFor="start-date"></label>
                 <input
                   id="start-date"
-                  type="text"
+                  type="date"
                   placeholder="Start Date"
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setStartDate(e.target.value)
