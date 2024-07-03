@@ -1,28 +1,25 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 
 import { Table } from "table-plugin-react-ts";
 
 const CurrentEmployees = () => {
-  const userData = useSelector((state: RootState) => state.user);
+  const userData = JSON.parse(localStorage.getItem("userData") || "[]");
+  
   const coloumnToSort = ["firstName", "lastName", "dateOfBirth", "startDate", "street", "city", "state", "zipCode", "department"]
   const coloumnToSearch = ["firstName", "lastName", "dateOfBirth", "startDate", "street", "city", "state", "zipCode", "department"]
-  const columns: {
-    title: string;
-    dataKey: string;
-  }[] = [];
 
-  columns.push(
-    { title: "First Name", dataKey: "firstName" },
-    { title: "Last Name", dataKey: "lastName" },
-    { title: "Date of Birth", dataKey: "dateOfBirth" },
-    { title: "Start Date", dataKey: "startDate" },
-    { title: "Street", dataKey: "street" },
-    { title: "City", dataKey: "city" },
-    { title: "State", dataKey: "state" },
-    { title: "Zip Code", dataKey: "zipCode" },
-    { title: "Department", dataKey: "department" }
-  )
+  const columns: {title: string, dataKey: string}[] = [
+    {title: "City", dataKey: "city"},
+    {title: "Date of Birth", dataKey: "dateOfBirth"},
+    {title: "Department", dataKey: "department"},
+    {title: "First Name", dataKey: "firstName"},
+    {title: "Last Name", dataKey: "lastName"},
+    {title: "Start Date", dataKey: "startDate"},
+    {title: "State", dataKey: "state"},
+    {title: "Street", dataKey: "street"},
+    {title: "Zip Code", dataKey: "zipCode"}
+  ];
 
   return (
     <div id="employee-div" className="container">
