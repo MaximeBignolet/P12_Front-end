@@ -112,7 +112,6 @@ button {
   cursor: pointer;
 }
 
-
 @media (min-width: 1024px) {
   form{
     display: grid;

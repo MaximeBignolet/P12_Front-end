@@ -6,6 +6,8 @@ import { addUser } from "../../store/UserSlice";
 const FormCreateUser = () => {
   const stateSelect = useSelector((state: RootState) => state.states);
   const dispatch: AppDispatch = useDispatch();
+  const existingData = localStorage.getItem("userData");
+  const parsedData = existingData ? JSON.parse(existingData) : [];
 
   const initialState = {
     firstName: "",
@@ -32,7 +34,8 @@ const FormCreateUser = () => {
   const handleSubmitFormNewEmploye = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(addUser(formState));
-    localStorage.setItem("userData", JSON.stringify([formState]));
+    const updatedData = [...parsedData, formState];
+    localStorage.setItem("userData", JSON.stringify(updatedData));
     setFormState(initialState);
   };
 

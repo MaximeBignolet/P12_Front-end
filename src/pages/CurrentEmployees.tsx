@@ -24,7 +24,9 @@ const CurrentEmployees = () => {
   return (
     <div id="employee-div" className="container">
       <h1>Current Employees</h1>
+      <div className="table_div">
       <Table columns={columns} data={userData} colmunToSort={coloumnToSort} columnQuery={coloumnToSearch} />
+      </div>
     </div>
   );
 };
