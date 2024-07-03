@@ -2,12 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store";
 import { useState } from "react";
 import { addUser } from "../../store/UserSlice";
+import { Modal } from "./Modal";
 
 const FormCreateUser = () => {
   const stateSelect = useSelector((state: RootState) => state.states);
   const dispatch: AppDispatch = useDispatch();
   const existingData = localStorage.getItem("userData");
   const parsedData = existingData ? JSON.parse(existingData) : [];
+  const [openModal, setOpenModal] = useState(false);
 
   const initialState = {
     firstName: "",
@@ -37,6 +39,7 @@ const FormCreateUser = () => {
     const updatedData = [...parsedData, formState];
     localStorage.setItem("userData", JSON.stringify(updatedData));
     setFormState(initialState);
+    setOpenModal(true);
   };
 
   return (
@@ -168,6 +171,7 @@ const FormCreateUser = () => {
         </div>
         <button type="submit" className="btn_save_employee">Save</button>
       </form>
+      {openModal && <Modal /> }
     </div>
   );
 };
