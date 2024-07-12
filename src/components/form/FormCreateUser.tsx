@@ -7,8 +7,6 @@ import { Modal } from "./Modal";
 const FormCreateUser = () => {
   const stateSelect = useSelector((state: RootState) => state.states);
   const dispatch: AppDispatch = useDispatch();
-  const existingData = localStorage.getItem("userData");
-  const parsedData = existingData ? JSON.parse(existingData) : [];
   const [openModal, setOpenModal] = useState(false);
 
   const initialState = {
@@ -36,8 +34,6 @@ const FormCreateUser = () => {
   const handleSubmitFormNewEmploye = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(addUser(formState));
-    const updatedData = [...parsedData, formState];
-    localStorage.setItem("userData", JSON.stringify(updatedData));
     setFormState(initialState);
     setOpenModal(true);
   };
