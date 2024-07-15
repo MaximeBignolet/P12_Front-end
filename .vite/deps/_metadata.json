@@ -1,47 +1,68 @@
 {
-  "hash": "62e3a755",
+  "hash": "99dc148b",
   "configHash": "c24c5b3c",
-  "lockfileHash": "e08bbab0",
-  "browserHash": "788c6f36",
+  "lockfileHash": "990fdc7d",
+  "browserHash": "71249579",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "a8a04f7e",
+      "fileHash": "8593af01",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "75aeea75",
+      "fileHash": "efdc0424",
       "needsInterop": true
     },
     "react-redux": {
       "src": "../../node_modules/react-redux/dist/react-redux.mjs",
       "file": "react-redux.js",
-      "fileHash": "b907f67b",
+      "fileHash": "60665923",
+      "needsInterop": false
+    },
+    "redux-persist/integration/react": {
+      "src": "../../node_modules/redux-persist/es/integration/react.js",
+      "file": "redux-persist_integration_react.js",
+      "fileHash": "c22bf5e3",
       "needsInterop": false
     },
     "@reduxjs/toolkit": {
       "src": "../../node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs",
       "file": "@reduxjs_toolkit.js",
-      "fileHash": "7b951b60",
+      "fileHash": "b9459cd6",
+      "needsInterop": false
+    },
+    "redux-persist/lib/storage": {
+      "src": "../../node_modules/redux-persist/lib/storage/index.js",
+      "file": "redux-persist_lib_storage.js",
+      "fileHash": "635fab1f",
+      "needsInterop": true
+    },
+    "redux-persist": {
+      "src": "../../node_modules/redux-persist/es/index.js",
+      "file": "redux-persist.js",
+      "fileHash": "bad08a12",
       "needsInterop": false
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.js",
       "file": "react-router-dom.js",
-      "fileHash": "75b4e8de",
+      "fileHash": "b71d15fc",
       "needsInterop": false
     },
     "table-plugin-react-ts": {
       "src": "../../node_modules/table-plugin-react-ts/dist/main.js",
       "file": "table-plugin-react-ts.js",
-      "fileHash": "3e6c8961",
+      "fileHash": "beb9b271",
       "needsInterop": false
     }
   },
   "chunks": {
+    "chunk-MBT3EELI": {
+      "file": "chunk-MBT3EELI.js"
+    },
     "chunk-5IFATXZH": {
       "file": "chunk-5IFATXZH.js"
     },

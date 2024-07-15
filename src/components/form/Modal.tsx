@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 
 export const Modal: React.FC = () => {
+    const overlay = useRef<HTMLDivElement | null>(null);
+    const modal = useRef<HTMLDivElement | null>(null);
     const closeModal = () => {
-        const modal = document.querySelector('.modal_container');
-        const overlay = document.querySelector('.overlay');
-        overlay?.remove();
-        modal?.remove();
+        modal.current?.remove();
+        overlay.current?.remove();
     }
   return (
     <>
-    <div className="overlay" onClick={closeModal}></div>
-    <div className='modal_container'>
+    <div className="overlay" onClick={closeModal} ref={overlay}></div>
+    <div className='modal_container' ref={modal}>
         <div>
             Employee created successfully !
         </div>
