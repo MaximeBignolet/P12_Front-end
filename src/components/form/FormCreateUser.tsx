@@ -3,12 +3,34 @@ import { AppDispatch, RootState } from "../../store/store";
 import { useState } from "react";
 import { addUser } from "../../store/UserSlice";
 import { Modal } from "./Modal";
+import { Dropdown } from "../dropdown/Dropdown";
 
 const FormCreateUser = () => {
-  const stateSelect = useSelector((state: RootState) => state.states);
   const dispatch: AppDispatch = useDispatch();
+  const stateSelect = useSelector((state: RootState) => state.states);
   const [openModal, setOpenModal] = useState(false);
-
+  const departmentArray = [
+    {
+      id: 1,
+      name: "Sales"
+    },
+    {
+      id: 2,
+      name: "Marketing"
+    },
+    {
+      id: 3,
+      name: "Engineering"
+    },
+    {
+      id: 4,
+      name: "Human Resources"
+    },
+    {
+      id: 5,
+      name: "Legal"
+    }
+  ]
   const initialState = {
     firstName: "",
     lastName: "",
@@ -36,7 +58,22 @@ const FormCreateUser = () => {
     dispatch(addUser(formState));
     setFormState(initialState);
     setOpenModal(true);
+    console.log(formState.state);
   };
+
+  const handleDateForDepartment = (data: string) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      department: data,
+    }));
+  }
+
+  const handleDataForState = (data: string) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      state: data,
+    }));
+  }
 
   return (
     <div className="container">
@@ -122,21 +159,9 @@ const FormCreateUser = () => {
                 />
               </div>
             </div>
-            <div className="state">
+            <div>
               <label htmlFor="state">State</label>
-              <select
-                id="state"
-                value={formState.state}
-                onChange={handleChange}
-                required
-              >
-                <option value="" disabled>Choose employee's state</option>
-                {stateSelect.map((s) => (
-                  <option value={s.abbreviation} key={s.abbreviation}>
-                    {s.name}
-                  </option>
-                ))}
-              </select>
+              <Dropdown value={formState.state} dataFromStore={stateSelect} placeholder="Select a State" onData={handleDataForState}/>
             </div>
             <div className="zip-code">
               <label htmlFor="zip-code"></label>
@@ -151,23 +176,13 @@ const FormCreateUser = () => {
             </div>
           </div>
           <label htmlFor="department" className="title_part">Department</label>
-          <select
-            id="department"
-            value={formState.department}
-            onChange={handleChange}
-            required
-          >
-            <option value="" disabled>Choose department</option>
-            <option>Sales</option>
-            <option>Marketing</option>
-            <option>Engineering</option>
-            <option>Human Resources</option>
-            <option>Legal</option>
-          </select>
+          <div>
+            <Dropdown value={formState.department} dataFromStore={departmentArray} placeholder={'Choose a department'} onData={handleDateForDepartment}/>
+          </div>
         </div>
         <button type="submit" className="btn_save_employee">Save</button>
       </form>
-      {openModal && <Modal /> }
+      {openModal && <Modal />}
     </div>
   );
 };
