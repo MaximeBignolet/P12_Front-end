@@ -5,11 +5,6 @@ body {
   margin: 0 auto;
 }
 
-
-#root {
-  overflow: hidden;
-}
-
 .title {
   display: flex;
   align-items: center;
