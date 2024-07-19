@@ -5,6 +5,11 @@ body {
   margin: 0 auto;
 }
 
+
+#root {
+  overflow: hidden;
+}
+
 .title {
   display: flex;
   align-items: center;
@@ -183,6 +188,11 @@ th {
 
 .state:hover {
   background-color: rgb(243 244 246);
+}
+
+table {
+  display: block;
+  overflow-y: auto;
 }
 
 @media screen and (min-width: 1280px) {
