@@ -1,4 +1,6 @@
 # React + TypeScript + Vite
+You could find the lighthouse performance audit on JSON format in the root of the project. The file is called `adit_perf_react.json`.
+```
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
