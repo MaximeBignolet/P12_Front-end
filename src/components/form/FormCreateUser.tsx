@@ -49,7 +49,7 @@ const FormCreateUser = () => {
     const { id, value } = e.target;
     setFormState((prevState) => ({
       ...prevState,
-      [id]: id === "zipCode" ? Number(value) : value
+      [id]: id === "zipCode" ? String(value) : value
     }));
   };
 
@@ -58,7 +58,6 @@ const FormCreateUser = () => {
     dispatch(addUser(formState));
     setFormState(initialState);
     setOpenModal(true);
-    console.log(formState.state);
   };
 
   const handleDateForDepartment = (data: string) => {
@@ -167,11 +166,12 @@ const FormCreateUser = () => {
               <label htmlFor="zip-code"></label>
               <input
                 id="zipCode"
-                type="number"
+                type="text"
                 placeholder="Zip Code"
                 value={formState.zipCode === 0 ? "" : formState.zipCode}
                 onChange={handleChange}
                 required
+                pattern="[0-9]{5}"
               />
             </div>
           </div>
